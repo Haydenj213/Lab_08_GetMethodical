@@ -76,7 +76,7 @@ public class SafeInput {
                 System.out.println("You input a number that is higher than the range. Please enter a lower number.");
             }
 
-        } while (low >= retDouble || retDouble >= high);
+        } while (low > retDouble || retDouble > high);
 
         return retDouble;
 
@@ -85,21 +85,24 @@ public class SafeInput {
     public static boolean getYNConfirm(Scanner pipe, String prompt) {
 
         boolean getYNConfirm = false;
+        boolean valid = false;
         String response = "";
 
         do {
             System.out.print("\n" + prompt + ": "); // show prompt add space
             response = pipe.nextLine();
 
-            if (response.equalsIgnoreCase("Y")) {
+            if (response.equalsIgnoreCase("N")) {
                 getYNConfirm = true;
-            } else if (response.equalsIgnoreCase("N")) {
+                valid = true;
+            } else if (response.equalsIgnoreCase("Y")) {
                 getYNConfirm = false;
+                valid = true;
             } else {
-                System.out.println("Invalid input. Please respond with Y (Yes) or N (No)");
+                System.out.println("Please respond with Y (Yes) or N (No)");
             }
 
-        } while (response.equalsIgnoreCase("Y") || response.equalsIgnoreCase("N"));
+        } while (!valid);
 
         return getYNConfirm;
 
