@@ -159,7 +159,53 @@ public class SafeInput {
         return getRegExString;
 
     }
+    public static void prettyHeader(String msg) {
+
+        int width = 60;
+        int msgLength = msg.length();
+        int padding = (width - msgLength - 6) / 2;
+        boolean correct = false;
+
+        do {
+            if (msgLength < 54) {
+                for (int i = 0; i < width; i++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+
+                System.out.print("***");
+                for (int i = 0; i < padding; i++) {
+                    System.out.print(" ");
+                }
+                System.out.print(msg);
+                for (int i = 0; i < padding; i++) {
+                    System.out.print(" ");
+                }
+                System.out.println("***");
+
+                for (int i = 0; i < width; i++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            correct = true;
+            } else {
+                System.out.println("Please input a message that is less than 55 characters long.");
+                Scanner in = new Scanner(System.in);
+                System.out.print("Please enter your message: ");
+                msg = in.nextLine();
+                msgLength = msg.length();
+                padding = (width - msgLength - 6) / 2;
+            }
+        } while (!correct);
+    }
+    public static double CtoF ( double celsius) {
+
+        return (celsius * 9 / 5) + 32;
+    }
 }
+
+
+
 
 
 

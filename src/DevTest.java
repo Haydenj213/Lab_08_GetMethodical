@@ -1,34 +1,24 @@
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.InputMismatchException;
 
 public class DevTest {
     public static void main(String[] args) {
 
     }
-    public static String getRegExString(Scanner pipe, String prompt, String regEx) {
 
-        String getRegExString = "";
-        boolean correct = false;
+    public static double CtoF(double Celsius) {
 
-        do {
-            System.out.print("\n" + prompt + ": "); // show prompt add space
-            getRegExString = pipe.nextLine();
-            Pattern pattern = Pattern.compile(regEx);
-            Matcher matcher = pattern.matcher(getRegExString);
+        System.out.printf("%-10s %-10s%n", "Celsius", "Fahrenheit");
+        System.out.println("----------------------");
 
-            if (matcher.matches()) {
-                correct = true;
-            } else {
-                System.out.println("Invalid input. Please respond with a string with the correct RegEx");
-            }
+        for (double celsius = -100.0; Celsius <= 100.0; Celsius++) {
+            double fahrenheit = CtoF(Celsius);
+            System.out.printf("%-10d %-10.2f%n", celsius, fahrenheit);
+        }
 
-        } while (!correct);
-
-        return getRegExString;
-
+            return (Celsius * 9 / 5) + 32;
+        }
     }
-}
+
 
 
 
