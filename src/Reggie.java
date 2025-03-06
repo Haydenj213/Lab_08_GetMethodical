@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Reggie {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String ssnPattern = "^\\\\d{3}-\\\\d{2}-\\\\d{4}$";
-        String ucStudentNumPattern = "^(M|m)\\\\d{5}$";
+        String ssnPattern = "^\\d{3}-\\d{2}-\\d{4}$";
+        String ucStudentNumPattern = "^(M|m)\\d{5}$";
         String menuChoicePattern = "^[OoSsVvQq]$";
 
         String ssn = SafeInput.getRegExString(in, "Please enter your SSN in the correct format (XXX-XX-XXXX)", ssnPattern);
